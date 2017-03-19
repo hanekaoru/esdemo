@@ -25,3 +25,63 @@ http 默认端口号为 80，也是也可以更改为 8080 等其他端口
 下图展示了 http 协议通信流程：
 
 ![img](http://www.runoob.com/wp-content/uploads/2013/11/cgiarch.gif)
+
+
+## http 消息结构
+
+http 是基于 客户端/服务端（C/S）的架构模型，通过一个可靠的链接来交换信息，是一个无状态的 请求/响应 协议
+
+一个 http "客户端" 是一个应用程序（web 浏览器或其他任何客户端），通过连接到服务器达到向服务器发送一个或多个 http 的请求的目的
+
+一个 http "服务器" 同样也是一个应用程序（通常是一个 web 服务，如 Apache Web 服务器或者 IIS 服务器等），通过接收客户端的请求并向客户端发送 http 响应数据
+
+http 使用统一资源标识符（URL）来传输数据和建立连接
+
+
+## 客户端请求消息
+
+客户端发送一个 http 请求到服务器的请求消息包括以下格式：请求行（request line），请求头部（header），空行和请求数据四个部分组成，如下图所示：
+
+![img](http://www.runoob.com/wp-content/uploads/2013/11/2012072810301161.png)
+
+
+
+## 客户端响应消息
+
+http 响应也由四个部分组成：状态行，消息报头，空行和响应正文
+
+![img](http://www.runoob.com/wp-content/uploads/2013/11/httpmessage.jpg)
+
+
+## 实例
+
+一个典型的使用 GET 来传递数据的实例：
+
+客户端请求：
+
+```js
+GET /hello.txt HTTP/1.1
+User-Agent: curl/7.16.3 libcurl/7.16.3 OpenSSL/0.9.7l zlib/1.2.3
+Host: www.example.com
+Accept-Language: en, mi
+```
+
+服务端响应：
+
+```js
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+ETag: "34aa387-d-1568eb00"
+Accept-Ranges: bytes
+Content-Length: 51
+Vary: Accept-Encoding
+Content-Type: text/plain
+```
+
+输出结果：
+
+```js
+Hello World! My payload includes a trailing CRLF.
+```
